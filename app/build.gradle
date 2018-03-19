@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+def cfg = rootProject.ext.android // 工程配置
+def libs = rootProject.ext.dependencies // 库依赖
+android {
+    compileSdkVersion cfg.compileSdkVersion
+    buildToolsVersion cfg.buildToolsVersion
+    defaultConfig {
+        applicationId "cashierdesk.xkeshi.com.modultest"
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation libs.appCompat
+    implementation libs.design
+    implementation libs.constraintLayout
+    implementation project(':clearableedittext')
+}

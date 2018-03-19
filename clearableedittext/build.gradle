@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+apply from: file('../gradle-mvn-push.gradle')//引用的插件
+def cfg = rootProject.ext.android // 工程配置
+def libs = rootProject.ext.dependencies // 库依赖
+android {
+    android {
+        compileSdkVersion cfg.compileSdkVersion
+        defaultConfig {
+            minSdkVersion cfg.minSdkVersion
+            targetSdkVersion cfg.targetSdkVersion
+            buildToolsVersion cfg.buildToolsVersion
+        }
+    }
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libs.appCompat
+}

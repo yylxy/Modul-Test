@@ -1,0 +1,30 @@
+apply from:file('./config.gradle')
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+    }
+}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+
+        maven {
+            url urls.snapshotsDev
+        }
+        maven {
+            url urls.releaseDev
+        }
+    }
+}
+
+tasks.getByPath(":clearableedittext:androidJavadocs").enabled = false

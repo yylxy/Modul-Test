@@ -1,0 +1,92 @@
+ext {
+
+    supportLibraryVersion = "27.0.1"
+    glideVersion = "3.8.0"
+    okHttpVersion = "3.9.0"
+    retrofitVersion = "2.3.0"
+    argVersion = "0.9.0"
+    butterKnifeVersion = "8.7.0"
+    rxJava2Version = "2.1.2"
+    rxAndroid2Version = "2.0.1"
+    rxRelay2Version = "2.0.0"
+    stethoVersion = "1.5.0"
+    fragmentationVersion = "1.0.8"
+    powermockVersion = "1.7.3"
+
+    // 强制使用版本号
+    forceVersion = { dependency, version ->
+        return dependency.substring(0, dependency.lastIndexOf(":") + 1) + version
+    }
+
+    // 自定义mavenUrl
+    customUrl = { group, branch, repo ->
+        return "http://gitlab.ops.xkeshi.so/" + group + "/mvn-repo/raw/" + branch + "/" + repo
+    }
+
+    android = [
+            compileSdkVersion: 26,
+            buildToolsVersion: "26.0.2",
+            targetSdkVersion : 26,
+            minSdkVersion    : 19
+    ]
+
+    urls = [
+            snapshots   : "http://gitlab.ops.xkeshi.so/android_cashier/mvn-repo/raw/master/snapshots",
+            release     : "http://gitlab.ops.xkeshi.so/android_cashier/mvn-repo/raw/master/release",
+
+            snapshotsDev: "http://gitlab.ops.xkeshi.so/android_cashier/mvn-repo/raw/dev/snapshots",
+            releaseDev  : "http://gitlab.ops.xkeshi.so/android_cashier/mvn-repo/raw/dev/release",
+    ]
+
+    dependencies = [
+
+            appCompat             : "com.android.support:appcompat-v7:$supportLibraryVersion",
+            constraintLayout      : "com.android.support.constraint:constraint-layout:1.0.2",
+            cardView              : "com.android.support:cardview-v7:$supportLibraryVersion",
+            recyclerView          : "com.android.support:recyclerview-v7:$supportLibraryVersion",
+            design                : "com.android.support:design:$supportLibraryVersion",
+            multidex              : 'com.android.support:multidex:1.0.1',
+
+            okHttp                : "com.squareup.okhttp3:okhttp:$okHttpVersion",
+            okHttpLogging         : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+
+            retrofit              : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConverterGson : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitAdapterRxJava : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+
+
+            rxJava2               : "io.reactivex.rxjava2:rxjava:${rxJava2Version}",
+            rxAndroid2            : "io.reactivex.rxjava2:rxandroid:${rxAndroid2Version}",
+            rxRelay2              : "com.jakewharton.rxrelay2:rxrelay:${rxRelay2Version}",
+
+            supportSqlite         : 'android.arch.persistence:db:1.0.0',
+            supportSqliteFramework: 'android.arch.persistence:db-framework:1.0.0',
+            sqlBrite3             : "com.squareup.sqlbrite3:sqlbrite:3.1.0",
+
+            flycoTabLayout        : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+
+            stetho                : "com.facebook.stetho:stetho:${stethoVersion}",
+            stethoOkhttp3         : "com.facebook.stetho:stetho-okhttp3:${stethoVersion}",
+            fragmentation         : "me.yokeyword:fragmentation:${fragmentationVersion}",
+
+            arg                   : "com.qinglinyi.arg:arg-api:${argVersion}",
+            argCompiler           : "com.qinglinyi.arg:arg-compiler:${argVersion}",
+            classicAdapter        : "com.classic.adapter:commonadapter:1.9",
+
+
+            glide                 : "com.github.bumptech.glide:glide:${glideVersion}",
+
+            flexbox               : "com.google.android:flexbox:0.3.1",
+
+            // test
+            junit                 : "junit:junit:4.12",
+            mockito               : "org.mockito:mockito-android:2.8.47",
+            powermock             : "org.powermock:powermock-module-junit4:${powermockVersion}",
+            powermockRule         : "org.powermock:powermock-module-junit4-rule:${powermockVersion}",
+            powermockApi          : "org.powermock:powermock-api-mockito:${powermockVersion}",
+
+
+
+
+    ]
+}
