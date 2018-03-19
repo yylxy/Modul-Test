@@ -25,5 +25,8 @@ dependencies {
     implementation libs.appCompat
     implementation libs.design
     implementation libs.constraintLayout
-    implementation project(':clearableedittext')
+
+
+    compile 'com.xkeshi.core:clearableedittext-library:1.0.0-SNAPSHOT@aar'//github 地址
+//    implementation project(':clearableedittext')
 }
